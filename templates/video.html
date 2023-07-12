@@ -1,0 +1,33 @@
+{% extends 'qa.html' %}
+
+        
+{% block content %}
+    <h2>Videos</h2>
+
+        <!----> 
+    <form method="post" action="{{ url_for('video')}}">
+        <div class="verify">
+            <select id="selector" name="category" id="category" class="field">
+                <option value="Iman">ঈমান</option>
+                <option value="Akida">আকিদা</option>
+                <option value="Namaj">নামাজ</option>
+                <option value="Roja">রোযা</option>
+                <option value="Hajj">হজ্জ</option>
+                <option value="Zakat">যাকাত</option>
+            </select>
+                    
+            <input type="submit" value="Search Video"/>
+        </div>
+    </form> >
+
+
+    <div class="video-list"
+        <div class="vid">
+            {% for e in  data %}
+                <h3>{{e[1]}}</h3><br>
+                <embed style="width:720px; height:450px;" src="{{e[3]}}"></embed><br><br><br>
+            {% endfor %}
+        <div>
+    </div>
+                
+{% endblock %}

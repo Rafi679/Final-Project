@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Login</title>
+    <link href="static/style.css" rel="stylesheet" type="text/css"
+</head>
+
+<BODY>
+
+    <div class="banner">
+        <div class="navbar">
+            <img src="static/image/ilogo.png" class="logo">
+            <ul>
+                <li><a href="{{url_for('home')}}">Home</a></li>
+                <li><a href="{{url_for('adminlogin')}}">Admin login</a></li>
+                
+        </div>
+
+        <div class="login">
+            <h2>Login</h2>
+            <h3>Enter your login information</h3>
+            <form action="{{ url_for('adminlogin')}}" method="post" >
+                Email:<input type="email" name="email" placeholder="Enter your email" class="textbox" id="email" required>
+                Password:<input type="password" name="password" placeholder="Enter your password" class="textbox" id="password" required></br>
+                <input type="submit" class="btnbasic" value="Login">
+            </form>
+            <p style="color:red; text-align:center;">{{message}}</p>
+        </div>
+
+
+    </div>
+
+    
+    </BODY>
+</html>

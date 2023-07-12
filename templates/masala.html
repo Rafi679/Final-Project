@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Non-Muslim</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+     integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous"
+    referrerpolicy="no-referrer" />
+    <link href="static/style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <div class="banner">
+        <div class="navbar">
+            <img src="static/image/ilogo.png" class="logo">
+            <ul>
+                <li><a href="{{url_for('main')}}">Home</a></li>
+                <li><a href="{{url_for('articles')}}">Articles</a></li>
+                <li><a href="{{url_for('calendar')}}">Islamic Calender</a></li>
+                <li><a href="#">Masala Masayel<i class="fas fa-caret-down"></i></a>
+                    <div class="sub_menu">
+                        <ul>
+                            <li><a href="{{url_for('quran')}}">Quran</a></li>
+                            <li><a href="{{url_for('video')}}">Videos</a></li>
+                            <li><a href="{{url_for('bukhari')}}">Bukhari Hadith(1-10)<i class="fas fa-caret-right"></i></a></li>  
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="{{url_for('qa')}}">Question/Answer</a></li>
+                    
+        </div>
+
+    </div>
+</body>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Articles</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+     integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous"
+    referrerpolicy="no-referrer" />
+    <link href="static/style.css" rel="stylesheet" type="text/css">
+    <link href="static/table.css" rel="stylesheet" type="text/css">
+</head>
+
+<BODY>
+
+    <div class="banner">
+        <div class="navbar">
+            <img src="static/image/ilogo.png" class="logo">
+
+            <ul>
+                <li><a href="{{url_for('main')}}">Home</a></li>
+                <li><a href="#">Articles<i class="fas fa-caret-down"></i></a>
+                    <div class="sub_menu">
+                        <ul>
+                            <li><a href="{{url_for('articles')}}">Write Articles</a></li>
+                            <li><a href="{{url_for('articleshow')}}">View Articles</a></li>    
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="{{url_for('calendar')}}">Calendar</a></li>
+                <li><a href="#">Books/Videos<i class="fas fa-caret-down"></i></a>
+                    <div class="sub_menu">
+                        <ul>
+                            <li><a href="{{url_for('video')}}">Videos</a></li>
+                            <li><a href="{{url_for('quran')}}">Quran</a></li>
+                            <li><a href="{{url_for('bukhari')}}">Bukhari(1-10)</a></li>    
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="#">Question/Answer<i class="fas fa-caret-down"></i></a>
+                    <div class="sub_menu">
+                        <ul>
+                            <li><a href="{{url_for('askqa')}}">Ask Questions</a></li>
+                            <li><a href="{{url_for('ans')}}">View Q/A</a></li>  
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="{{url_for('logout')}}" >Logout</a></li>
+        </div>
+
+        <div class="qaform">
+            <h2>Articles</h2>
+            <p>Hello : {{name}}</p><br>
+            <form action="" method="post">
+                Write your article:<br><textarea type="text" name="article" placeholder="..............." class="textbox" id="article" cols="40" rows="10" required></textarea></br>
+
+                <input type="submit" class="button" value="Submit"><br><br>
+                
+            </form>
+            <p style="color:green; text-align:center;">{{message}}</p>
+            <form action="{{ url_for('articleshow')}}" method="post">
+                <input type="submit" style="text-align:center;" class="btnbasic" <a href="{{ url_for('articleshow')}}" value="Show all articles"><br>
+            </form>
+        </div>
+
+
+    </div>
+</body>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Home page</title>
+    <link href="static/style.css" rel="stylesheet" type="text/css">
+    <link href="static/css/table.css" rel="stylesheet" type="text/css">
+</head>
+
+<BODY>
+
+    <div class="banner1">
+            <div class="navbar">
+                <img src="static/image/ilogo.png" class="logo">
+                <ul>
+                    <li><a href="{{url_for('admin')}}">Admin</a></li>
+                    <li><a href="{{url_for('register')}}">Registration</a></li>
+                    <li><a href="{{url_for('addvideo')}}">Add Video</a></li>
+                    <li><a href="{{url_for('home')}}">Logout</a></li>
+            </div>
+
+            {% block content %}
+            <h2>Verification</h2>
+            <form method="POST">
+                <form method="post" action="">
+                <div class="verify">
+                    <select id="selector" name="category" class="field">
+                      <option value="active">Active</option>
+                      <option value="deactive">Deactive</option>
+                      <option value="delete">Delete</option>
+                    </select>
+                    <input type="text" name="email" placeholder="Enter email" class="field" /><br>
+                    <input type="submit" value="Execute"/>
+                </div>
+            </div>
+
+            
+                </form>
+                <table>
+                    <tr>
+                        <th>Username</th>
+                        <th>email</th>
+                        <th>usertype</th>
+                        <th>Password</th>
+                        <th>status</th>
+                    </tr>
+                    {% for e in  alluser %}
+                        <tr>
+                            <td>{{e[0]}}</td>
+                            <td>{{e[1]}}</td>
+                            <td>{{e[2]}}</td>
+                            <td>{{e[3]}}</td>
+                            <td>{{e[4]}}</td>
+                        </tr>
+
+                    {% endfor %}
+   
+                </table>
+            <form>
+            {% endblock %}
+
+    </div
+    
+</BODY>
+</html>

@@ -1,0 +1,91 @@
+{% extends 'qa.html' %}
+        
+{% block content %}
+    <h2>Answers</h2>
+    <h3  class="notify" >{{message}}</h3><br>
+        <table class="questiontable" align="center">    
+            
+                    <div>
+                    <form actions='' method="POST">
+                        <tr><td>
+                                <i class="fa-solid fa-user" p>  {{question[2]}}</p></i>
+                                <p>{{question[3]}}</p>
+                                <p>{{question[4]}}</p><br>
+                                <h4>Question:</h4>
+                                <p>{{question[0]}}</p><br>
+                                <input method="post" type="hidden" name="qid" value={{question[1]}} />
+                            </th>
+                            <th>Actions</th>
+                        </tr>
+                        <form action='/ansshow' method="post">
+                            <tr class="input-txt">
+                                <input method="post" type="hidden" name="qiid" value={{question[1]}} />
+                                <td><textarea type="text" id="ans" name="ans" col="15" rows="5" placeholder="Write your answer"required></textarea></td><br>
+                                <td><button type="submit" method="post" value="submit">Submit</button></td><br>
+                            </tr>
+                        </form>
+
+
+                        {% for a in  answer %}
+                        <tr>
+                            <td>
+                                <i class="fa-solid fa-user-graduate" p>  {{a[0]}}</p></i>
+                                <p>{{a[5]}}</p>
+                                <p>{{a[6]}}</p><br>
+                                <h4>Answer: </h4>
+                                <p>{{a[1]}}</p><br>
+                            </td>
+                                            
+                        
+                            <td class="td_table">
+                            {% if session['userid'] == a[4]  %}    
+                                <button type="button" class="edit">Edit</button>
+                                <div class='editform'>
+                                    <form method="post" action='/editanswer'>
+                                        <input method="post" type="hidden" name="qid" value={{a[3]}} >
+                                        <input method="post" type="hidden" name="userid" value={{a[4]}} >
+                                        <input type="hidden" name='aid' value={{a[2]}}>
+                                        
+                                        <textarea type='text' contenteditable="true" name='answer' cols="60" rows="8" word-wrap="break-word"
+                                            word-break="break-all"  required >{{a[1]}}</textarea>
+                                        <input type="submit" value='submit'>
+                                    </form>
+                                </div>
+                                <form method="post" action="/removeanswer">
+                                    <input method="post" type="hidden" name="qid" value={{a[3]}} >
+                                    <input method="post" type="hidden" name="userid" value={{a[4]}} >
+                                    <input type="hidden" name='aid' value={{a[2]}}>
+                                    <button type="submit" class='remove'>Delete</button>
+                                </form>
+
+                            {% else %}
+                                <p> </p>
+            
+                            {% endif %}    
+                            </td>
+                        </tr>
+                        {% endfor %}
+                                    
+    
+                    </form>
+                    </div>
+                
+   
+        </table>
+        <script>
+            var coll = document.getElementsByClassName("edit");
+            var i;
+            
+            for (i = 0; i < coll.length; i++) {
+              coll[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var editform = this.nextElementSibling;
+                if (editform.style.display === "block") {
+                  editform.style.display = "none";
+                } else {
+                  editform.style.display = "block";
+                }
+              });
+            }
+            </script>
+{% endblock %}

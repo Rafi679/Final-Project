@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Main</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+     integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous"
+    referrerpolicy="no-referrer" />
+    <link href="static/style.css" rel="stylesheet" type="text/css">
+    <link href="static/css/table.css" rel="stylesheet" type="text/css">
+    <script src="static/js/script.js"></script>
+    
+
+</head>
+
+<BODY>
+
+    <div class="banner">
+        <div class="navbar">
+            <img src="static/image/ilogo.png" class="logo">
+            
+            <ul>
+                <li><a href="{{url_for('main')}}">Home</a></li>
+                <li><a href="{{url_for('articles')}}">Articles</a></li>
+                <li><a href="{{url_for('calendar')}}">Islamic Calender</a></li>
+                <li><a href="#">Books/Videos<i class="fas fa-caret-down"></i></a>
+                    <div class="sub_menu">
+                        <ul>
+                            <li><a href="{{url_for('video')}}">Videos</a></li>
+                            <li><a href="{{url_for('quran')}}">Quran</a></li>
+                            <li><a href="{{url_for('bukhari')}}">Bukhari(1-10)</a></li>    
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="#">Question/Answer<i class="fas fa-caret-down"></i></a>
+                    <div class="sub_menu">
+                        <ul>
+                            <li><a href="{{url_for('askqa')}}">Ask Questions</a></li>
+                            <li><a href="{{url_for('ans')}}">View Answers</a></li>  
+                        </ul>
+                    </div>
+                </li>    
+                <li><a href="{{url_for('logout')}}" >Logout</a></li>
+                    
+        </div>
+
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html>

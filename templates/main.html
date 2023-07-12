@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Main</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+     integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous"
+    referrerpolicy="no-referrer" />
+    <link href="static/style.css" rel="stylesheet" type="text/css">
+    <link href="static/table.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<BODY>
+
+    <div class="banner">
+        <div class="navbar">
+            <img src="static/image/ilogo.png" class="logo">
+
+            <ul>
+                <li><a href="{{url_for('main')}}">Home</a></li>
+                <li><a href="#">Articles<i class="fas fa-caret-down"></i></a>
+                    <div class="sub_menu">
+                        <ul>
+                            <li><a href="{{url_for('articles')}}">Write Articles</a></li>
+                            <li><a href="{{url_for('articleshow')}}">View Articles</a></li>    
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="{{url_for('calendar')}}">Calendar</a></li>
+                <li><a href="#">Books/Videos<i class="fas fa-caret-down"></i></a>
+                    <div class="sub_menu">
+                        <ul>
+                            <li><a href="{{url_for('video')}}">Videos</a></li>
+                            <li><a href="{{url_for('quran')}}">Quran</a></li>
+                            <li><a href="{{url_for('bukhari')}}">Bukhari(1-10)</a></li> 
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="#">Question/Answer<i class="fas fa-caret-down"></i></a>
+                    <div class="sub_menu">
+                        <ul>
+                            <li><a href="{{url_for('askqa')}}">Ask Questions</a></li>
+                            <li><a href="{{url_for('ans')}}">view Q/A</a></li> 
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="{{url_for('logout')}}" >Logout</a></li>
+                    
+        </div>
+
+        <div class="content">
+            <h1>KNOW YOUR DEEN!</h1>
+            <p>Islam is our deen. We should know about our deen and we need to
+            <br> follow islamic lifestyle to become a good muslim.</p>
+        </div>
+    </div>
+
+    <div class="features">
+        <h1>Features</h1>
+        
+        <div class="row">
+            <div class="features-col">
+                <h3><a href="{{url_for('calendar')}}">Islamic Calendar</a></h3>
+                <p>You will be able to see Islamic calendar in our website.</p>
+            </div>
+
+            <div class="features-col">
+                <h3><a href="{{url_for('video')}}">Islamic videos</a></h3>
+                <p>You will able to see Islamic videos of Bangladeshi Islamic scholars in our website.</p>
+            </div>
+
+            <div class="features-col">
+                <h3><a href="{{url_for('ans')}}">Question/Answer</a></h3>
+                <p>You can ask any questions regarding Islam to our Islamic scholars .</p>
+            </div>
+            <div class="features-col">
+                <h3><a href="{{url_for('quran')}}">Read Quran</a></h3>
+                <p>You will be able to read Quran in English, Bangla and Arabic language.</p>
+            </div>
+    
+            <div class="features-col">
+                <h3><a href="{{url_for('bukhari')}}">Bukhari Hadith</a></h3>
+                <p>You can also read Bukhari Hadith from part 1-10.</p>
+            </div>
+    
+            <div class="features-col">
+                <h3><a href="{{url_for('articleshow')}}">Read Useful Articles</a></h3>
+                <p>Users can read and write useful articles about Islam in our website.</p>
+            </div>
+            
+        </div>
+    <footer class:"footer">
+        
+                    <div class:"footer-left">
+                        <img src="static/image/ilogo.png" class="logo" >
+                        <p>Deen Islam is a Bangladeshi website for the <br>people of Bangladesh to commniucate with <br>the Islamic Scholars</p>
+                        
+                    </div>
+
+                    <ul class="footer-mid">
+                        <li>
+                            <h2>Useful Links</h2>
+                            <ul class="box">
+                                <li> <li><a href="{{url_for('main')}}">Home</a></li>
+                                <li><a href="{{url_for('articleshow')}}">Articles</a></li>
+                                <li><a href="{{url_for('calendar')}}">Calendar</a></li>
+                                <li><a href="{{url_for('video')}}">Videos</a></li>
+                                <li><a href="{{url_for('askqa')}}">Ask Questions</a></li>
+                                <li><a href="{{url_for('ans')}}">View Q/A</a></li>
+                            </ul>    
+                        </li>    
+                    </ul> 
+
+                    
+                    <ul class="footer-right">
+                        <li>
+                            <h2>Contact Info</h2>
+                            <ul class="box">
+                                <li><p>www.deenislam@gmail.com</p>
+                                <li><p>+880-###-####-###</p>
+                                <li><p>4/A, Dhanmondi, Dhaka</p>
+                            </ul>    
+                        </li>    
+                    </ul> 
+                
+    </footer>
+</BODY>
+</html>

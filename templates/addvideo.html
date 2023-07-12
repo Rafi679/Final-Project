@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Add Video</title>
+    <link href="static/style.css" rel="stylesheet" type="text/css"
+</head>
+
+<BODY>
+
+    <div class="banner1">
+        <div class="navbar">
+            <img src="static/image/ilogo.png" class="logo">
+            <ul>
+                <li><a href="{{url_for('admin')}}">Admin</a></li>
+                <li><a href="{{url_for('register')}}">Registration</a></li>
+                <li><a href="{{url_for('addvideo')}}">Add Video</a></li>
+                <li><a href="{{url_for('home')}}">Logout</a></li>
+        </div>
+
+            <div class="register1">
+                <h2>Add Video</h2>
+                <form action="{{ url_for('addvideo')}}" method="post" autocomplete="off">
+                    Videotitle:<input type="text" name="videotitle" placeholder="Write the title" class="textbox" id="videotitle" required></br>
+                    Select Category:<select type="text" name="videocategory" id="videocategory">    
+                        <option type="text" name="videocategory" id="videocategory">Iman</option>
+                        <option type="text" name="videocategory" id="videocategory">Akida</option>
+                        <option type="text" name="videocategory" id="videocategory">Namaj</option>
+                        <option type="text" name="videocategory" id="videocategory">Roja</option>
+                        <option type="text" name="videocategory" id="videocategory">Hajj</option>
+                        <option type="text" name="videocategory" id="videocategory">Zakat</option>
+
+                    </select></br>
+                    Video url:<input type="text" name="videourl" placeholder="Insert video url " class="textbox" id="videourl" required></br>
+                    <input type="submit" class="btnbasic" value="SUBMIT">
+    
+                </form>
+                <p style="color:green; text-align:center;">{{message}}</p>
+            </div>
+
+
+    </div
+
+
+    
+</BODY>
+</html>

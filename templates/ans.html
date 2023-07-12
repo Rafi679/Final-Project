@@ -1,0 +1,73 @@
+{% extends 'qa.html' %}
+        
+{% block content %}
+    <h2>Questions</h2>
+
+    
+        <table class="questiontable" align="center" >
+            
+            <tr>
+                <th>Question</th>
+                <th>Actions</th>
+            </tr>
+            {% for e in  question %}
+            <div>
+            <tr>
+                <form action="/ansshow" method="post">
+                <td><i class="fa-solid fa-user" p>  {{e[0]}}</p></i>
+                    <p>{{e[4]}}</p>
+                    <p>{{e[5]}}</p><br>
+                    <h4>Question:</h4>
+                    <p>{{e[1]}}</p><br>
+                    <input type="hidden" name="qid" value={{e[2]}} >
+                    <button type="submit" >Show All Answers</button><br></td>
+                </form>
+                <td class="td_table">
+                {% if session['userid'] == e[3]  %}    
+                    <button type="button" class="edit">Edit</button>
+                    <div class='editform'>
+                        <form method="post" action='/editquestion'>
+                            <input type="hidden" name='qid' value={{e[2]}}>
+                            <input type="hidden" name='userid' value={{e[3]}}>
+				            <textarea type='text' contenteditable="true" name='question' cols="60" rows="8" word-wrap="break-word"
+                            word-break="break-all"  required >{{e[1]}}</textarea>
+                            <input type="submit" value='submit'/>
+                        </form>
+                    </div>
+                        <form method="post" action="/remove">
+                            <input type="hidden" name='qid' value={{e[2]}}>
+                            <input type="hidden" name='userid' value={{e[3]}}>
+                            <button type="submit" class='remove' >Delete</button>
+                        </form>
+
+                {% else %}
+                    <p> </p>
+    
+                {% endif %}
+                </td>
+                   
+                   
+            </tr>
+        </div>
+            {% endfor %}
+            
+        
+        </table>
+        <script>
+            var coll = document.getElementsByClassName("edit");
+            var i;
+            
+            for (i = 0; i < coll.length; i++) {
+              coll[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var editform = this.nextElementSibling;
+                if (editform.style.display === "block") {
+                  editform.style.display = "none";
+                } else {
+                  editform.style.display = "block";
+                }
+              });
+            }
+            </script>
+
+{% endblock %}

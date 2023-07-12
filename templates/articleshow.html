@@ -1,0 +1,76 @@
+{% extends 'qa.html' %}
+        
+{% block content %}
+    <h2>Article</h2>
+    <h3  class="notify" >{{message}}</h3><br>
+    
+    <table class="questiontable" align="center">
+        <tr>
+            <th>Article</th>
+            <th>Actions</th>
+        </tr>
+        {% for e in  article %}
+            <tr>
+                <td>
+                    <i class="fa-solid fa-circle-user" p> {{e[1]}}</p> </i>
+                    <p>{{e[5]}}</p>
+                    <p>{{e[4]}}</p><br>
+                    <h4>Article:</h4>
+                    <p>{{e[2]}}</p><br>
+                </td>
+                <div class="content-item">
+                    
+                    
+                        
+                    
+                        <td class="td_table">
+                        {% if session['userid'] == e[3]  %}
+                            <button type="button" class="edit">Edit</button>
+                            
+                           
+                                <div class='editform'>
+                                    <form method="post" action='/editarticle'>
+                                        <input type="hidden" name='articleid' value={{e[0]}}>
+                                        <input type="hidden" name='userid' value={{e[3]}}>
+                                        <textarea type='text' contenteditable="true" name='article' cols="60" rows="8" word-wrap="break-word"
+                                        word-break="break-all"  required >{{e[2]}}</textarea>
+                                        <input type="submit" value='submit'/>
+                                    </form>
+                                </div>
+                                
+                                <form method="post" action="/removearticle">
+                                    <input type="hidden" name='articleid' value={{e[0]}}>
+                                    <input type="hidden" name='userid' value={{e[3]}}>
+                                    <button type="submit" class='remove' >Delete</button>
+                                </form>
+                        {% else %}
+                            <p> </p>
+        
+                        {% endif %}
+                        </td>
+                    
+                    
+                </div>
+            </tr>
+
+        {% endfor %}
+   
+    </table>
+    <script>
+        var coll = document.getElementsByClassName("edit");
+        var i;
+        
+        for (i = 0; i < coll.length; i++) {
+          coll[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var editform = this.nextElementSibling;
+            if (editform.style.display === "block") {
+              editform.style.display = "none";
+            } else {
+              editform.style.display = "block";
+            }
+          });
+        }
+        </script>
+
+{% endblock %}

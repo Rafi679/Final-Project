@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Register</title>
+    <link href="static/style.css" rel="stylesheet" type="text/css"
+</head>
+
+<BODY>
+
+    <div class="banner">
+        <div class="navbar">
+            <img src="static/image/ilogo.png" class="logo">
+            <ul>
+                <li><a href="{{url_for('register')}}">Registration</a></li>
+                <li><a href="{{url_for('home')}}">Home</a></li>
+                
+        </div>
+
+            <div class="register1">
+                <h2>Registration</h2>
+                <form action="{{ url_for('register')}}" method="post" autocomplete="off">
+                    Username:<input type="text" name="username" placeholder="Enter your username" class="textbox" id="username" required></br>
+                    Email:<input type="email" name="email" placeholder="Enter your email id" class="textbox" id="email" required></br>
+                    Registration as:<select type="text" name="usertype" id="username">    
+                        <option type="text" name="usertype" id="username">User</option>
+                        <option type="text" name="usertype" id="username">Scholar</option>
+                    </select></br>
+                    Password:<input type="password" name="password" placeholder="Enter your password" class="textbox" id="password" required></br>
+                    <p>If you are already registered, <a href="{{url_for('login')}}">Login here</p>
+                    <input type="submit" class="btnbasic" value="Register">
+    
+                </form>
+                <p style="color:green; text-align:center;">{{message}}</p>
+            </div>
+
+
+    </div
+
+
+    
+</BODY>
+</html>
